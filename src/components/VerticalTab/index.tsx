@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import './style.scss';
+import styles from './style.css';
 
 interface VerticalTabPanelProps {
     children?: React.ReactNode;
@@ -27,13 +27,13 @@ export function VerticalTabPanel(props: VerticalTabPanelProps) {
             hidden={value !== index}
             id={`vertical-tabpanel-${index}`}
             aria-labelledby={`vertical-tab-${index}`}
-            className={'vertical-tab-panel'}
+            className={styles.verticaltabpanel}
             {...other}
         >
             {value === index
             && (
                 <Box
-                    className={'vertical-tab-box-container'}
+                    className={styles.verticaltabboxcontainer}
                     p={3}>
                     {children}
                 </Box>

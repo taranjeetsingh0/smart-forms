@@ -6,7 +6,7 @@ import {
     ConfigField,
     FormType,
 } from "./interface";
-import './style.scss';
+import styles from './style.css';
 import {
     ErrorMessagesType,
     IsJsonString,
@@ -36,6 +36,8 @@ export interface AlertType {
 }
 
 export const Form = (props: FormType) => {
+
+  console.log('s', styles)
 
     const [isAlertOpen, setIsAlertOpen] = React.useState<boolean>(false);
     const [alert, setAlertMessage] = React.useState<AlertType>({message: ''});
@@ -454,7 +456,7 @@ export const Form = (props: FormType) => {
     }
 
     return (
-        <Grid className={`${className} app-common-form`} container justify={'center'} direction={'column'}>
+        <Grid className={`${className} ${styles.appCommonForm}`} container justify={'center'} direction={'column'}>
             {fields.map((option: ConfigField, index) => {
                 return renderFields(option, index);
             })}
@@ -491,7 +493,7 @@ export const Form = (props: FormType) => {
                 : null
             }
 
-            <Grid container className={'button-section'}>
+            <Grid container className={styles.buttonSection}>
                 {
                     showClearButton
                     ? <Grid item><CommonButton title={'Clear values'} onClick={clearForm} color={'secondary'} /></Grid>

@@ -1,5 +1,3 @@
-import './style.scss';
-
 export type HeadingTypeInterface = 'main' | 'primary' | 'secondary' | 'para';
 
 interface RenderHeadingType {

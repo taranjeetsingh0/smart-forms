@@ -1,0 +1,8 @@
+.verticaltabpanel {
+  width: 100%;
+  height: 400px;
+  overflow: auto;
+}
+.verticaltabboxcontainer {
+  padding-top: 0;
+}
