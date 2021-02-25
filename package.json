@@ -1,6 +1,6 @@
 {
   "name": "@taranjeetsingh/forms",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Made with create-react-library",
   "author": "Taranjeet Singh",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
-    "publish": "npm version patch && npm publish --access=public"
+    "pub": "git add . && git commit -m \"Updates\" && npm version patch && npm publish --access=public"
   },
   "peerDependencies": {
     "react": "^16.0.0"
