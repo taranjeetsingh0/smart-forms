@@ -1489,11 +1489,6 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@ranjodhbirkaur/constants@^1.0.124":
-  version "1.0.124"
-  resolved "https://registry.yarnpkg.com/@ranjodhbirkaur/constants/-/constants-1.0.124.tgz#139157934b29264de47cbcc157a52cbf5e9ea757"
-  integrity sha512-RVe2presMEyu10AEsEGKhVR7sqB8RkDAKiunw+vtErlqfpkQ3lGVJCPajzkzwLmUMR8nzgAX3ZQfkbYMrXihoQ==
-
 "@rollup/plugin-alias@^3.0.1":
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-3.1.2.tgz#c585b05be4a7782d269c69d13def56f44e417772"

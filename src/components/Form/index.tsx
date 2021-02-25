@@ -7,12 +7,6 @@ import {
     FormType,
 } from "./interface";
 import styles from './style.css';
-import {
-    ErrorMessagesType,
-    IsJsonString,
-    FIELD,
-    MESSAGE
-} from "@ranjodhbirkaur/constants";
 import {Alert} from "../Toast";
 import {CommonRadioField} from "./CommonRadioField";
 import {CommonCheckBoxField} from "./CommonCheckBoxField";
@@ -35,9 +29,25 @@ export interface AlertType {
     severity?: 'success' | 'error' | 'info'
 }
 
-export const Form = (props: FormType) => {
+const FIELD = "field";
+const MESSAGE = "message";
 
-  console.log('s', styles)
+interface ErrorMessagesType {
+  [FIELD]?: string;
+  [MESSAGE]: string;
+}
+
+function IsJsonString(str: string) {
+  try {
+    JSON.parse(str);
+  }
+  catch (e) {
+    return false;
+  }
+  return true;
+}
+
+export const Form = (props: FormType) => {
 
     const [isAlertOpen, setIsAlertOpen] = React.useState<boolean>(false);
     const [alert, setAlertMessage] = React.useState<AlertType>({message: ''});
@@ -226,7 +236,7 @@ export const Form = (props: FormType) => {
         const helperText = getHelperText(label);
         const value = getValue(label);
         const error = hasError(label);
-        const classNames = `${className} form-field-container-wrapper ${error ? 'red-border' : ''}`;
+        const classNames = `${className} ${styles.formFieldContainerWrapper} ${error ? styles.redBorder : ''}`;
 
 
         if(inputType === 'date') {
@@ -456,7 +466,7 @@ export const Form = (props: FormType) => {
     }
 
     return (
-        <Grid className={`${className} ${styles.appCommonForm}`} container justify={'center'} direction={'column'}>
+        <Grid className={`${className} ${styles.form}`} container justify={'center'} direction={'column'}>
             {fields.map((option: ConfigField, index) => {
                 return renderFields(option, index);
             })}
@@ -493,7 +503,7 @@ export const Form = (props: FormType) => {
                 : null
             }
 
-            <Grid container className={styles.buttonSection}>
+            <Grid container spacing={1} justify={"flex-end"}>
                 {
                     showClearButton
                     ? <Grid item><CommonButton title={'Clear values'} onClick={clearForm} color={'secondary'} /></Grid>

@@ -1,24 +1,17 @@
-.app-common-form {
+.form {
   margin: 20px 0;
   padding-bottom: 10px;
   border-bottom: 2px dashed #3f51b5;
-  display: none;
 }
-.app-common-form>.button-section {
+.buttonSection {
   justify-content: flex-end;
 }
-.app-common-form>.button-section>button {
-  margin: 5px;
-}
-.app-common-form>.common-form-accordian>.MuiAccordionDetails-root {
-  flex-direction: column;
-}
-.app-common-form>.form-field-container-wrapper {
+.formFieldContainerWrapper {
   border-left: 2px solid #3f51b5;
   padding-left: 10px;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
-.app-common-form>.form-field-container-wrapper.red-border {
+.redBorder {
   border-color: #f44336 !important;
 }
