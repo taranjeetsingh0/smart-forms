@@ -1,10 +1,10 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import React from 'react';
+import './assets/style/index.scss';
+import { Form } from './components/Form';
+import { FormType } from './components/Form/interface';
 
-interface Props {
-  text: string
-}
-
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+export const SmartForm = (props: FormType) => {
+ 
+  return <Form {...props} />;
+  
 }

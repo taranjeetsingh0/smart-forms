@@ -1,10 +1,10 @@
 {
-  "name": "forms",
+  "name": "@taranjeetsingh/forms",
   "version": "1.0.0",
   "description": "Made with create-react-library",
   "author": "Taranjeet Singh",
   "license": "MIT",
-  "repository": "Taranjeet Singh/forms",
+  "repository": "",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
