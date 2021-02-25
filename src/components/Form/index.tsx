@@ -1,12 +1,13 @@
 import React, {ChangeEvent, useEffect, useState} from "react";
 import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 import {TextBox} from "./TextBox";
 import {DropDown} from "./DropDown";
 import {
     ConfigField,
     FormType,
 } from "./interface";
-import styles from './style.css';
+
 import {Alert} from "../Toast";
 import {CommonRadioField} from "./CommonRadioField";
 import {CommonCheckBoxField} from "./CommonCheckBoxField";
@@ -46,6 +47,23 @@ function IsJsonString(str: string) {
   }
   return true;
 }
+
+const useStyles = makeStyles({
+  form: {
+    margin: '20px 0',
+    paddingBottom: '10px',
+    borderBottom: '2px dashed #3f51b5'
+  },
+  formFieldContainerWrapper: {
+  borderLeft: '2px solid #3f51b5',
+  paddingLeft: '10px',
+  paddingBottom: '10px',
+  marginBottom: '20px'
+},
+  redBorder: {
+  borderColor: '#f44336 !important'
+}
+});
 
 export const Form = (props: FormType) => {
 
@@ -236,7 +254,7 @@ export const Form = (props: FormType) => {
         const helperText = getHelperText(label);
         const value = getValue(label);
         const error = hasError(label);
-        const classNames = `${className} ${styles.formFieldContainerWrapper} ${error ? styles.redBorder : ''}`;
+        const classNames = `${className} ${classes.formFieldContainerWrapper} ${error ? classes.redBorder : ''}`;
 
 
         if(inputType === 'date') {
@@ -465,8 +483,10 @@ export const Form = (props: FormType) => {
         setFormState(values);
     }
 
+    const classes = useStyles();
+
     return (
-        <Grid className={`${className} ${styles.form}`} container justify={'center'} direction={'column'}>
+        <Grid className={`${className} ${classes.form}`} container justify={'center'} direction={'column'}>
             {fields.map((option: ConfigField, index) => {
                 return renderFields(option, index);
             })}

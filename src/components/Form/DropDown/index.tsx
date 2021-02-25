@@ -5,9 +5,18 @@ import Select from '@material-ui/core/Select';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
-import styles from './style.css';
+import {makeStyles} from '@material-ui/core/styles';
 import {FieldType, OptionsType} from "../interface";
 import {DescriptionText} from "../DescriptionText";
+
+const useStyles = makeStyles({
+  appDropDown: {
+    minWidth: '194.4px'
+  },
+  appDropDownFormControl: {
+  width: '100%'
+  }
+});
 
 interface DropDownType extends FieldType{
     options: OptionsType[];
@@ -21,9 +30,12 @@ export const DropDown = (props: DropDownType) => {
         error=false, helperText, disabled=false, descriptionText = '',
         placeholder='', required=false, value, index} = props;
     const randomId = `${name.split(' ').join('-')}-${index}-drop-down-input-label`;
+
+    const classes = useStyles();
+
     return (
-        <Grid key={index} className={`${className} ${styles.appDropDown}`} id={id ? id : ''}>
-            <FormControl className={styles.appDropDownFormControl} error={error} disabled={disabled}>
+        <Grid key={index} className={`${className} ${classes.appDropDown}`} id={id ? id : ''}>
+            <FormControl className={classes.appDropDownFormControl} error={error} disabled={disabled}>
                 <InputLabel id={randomId}>{label}</InputLabel>
                 <Select
                     className={'app-drop-down-select'}

@@ -3,7 +3,6 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import styles from './style.css';
 
 interface VerticalTabPanelProps {
     children?: React.ReactNode;
@@ -18,8 +17,30 @@ interface VerticalTabProps {
     setValue: any;
 }
 
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+    display: 'flex',
+    height: '400px'
+  },
+  tabs: {
+    borderRight: `1px solid ${theme.palette.divider}`,
+  },
+  verticaltabpanel: {
+    width: '100%',
+    height: '400px',
+    overflow: 'auto'
+  },
+  verticaltabboxcontainer: {
+    paddingTop: 0
+  }
+}));
+
 export function VerticalTabPanel(props: VerticalTabPanelProps) {
     const { children, value, index, ...other } = props;
+
+    const classes = useStyles();
 
     return (
         <div
@@ -27,13 +48,13 @@ export function VerticalTabPanel(props: VerticalTabPanelProps) {
             hidden={value !== index}
             id={`vertical-tabpanel-${index}`}
             aria-labelledby={`vertical-tab-${index}`}
-            className={styles.verticaltabpanel}
+            className={classes.verticaltabpanel}
             {...other}
         >
             {value === index
             && (
                 <Box
-                    className={styles.verticaltabboxcontainer}
+                    className={classes.verticaltabboxcontainer}
                     p={3}>
                     {children}
                 </Box>
@@ -48,18 +69,6 @@ function a11yProps(index: any) {
         'aria-controls': `vertical-tabpanel-${index}`,
     };
 }
-
-const useStyles = makeStyles((theme: Theme) => ({
-    root: {
-        flexGrow: 1,
-        backgroundColor: theme.palette.background.paper,
-        display: 'flex',
-        height: '400px'
-    },
-    tabs: {
-        borderRight: `1px solid ${theme.palette.divider}`,
-    },
-}));
 
 export const VerticalTab = (props: VerticalTabProps) => {
     const classes = useStyles();

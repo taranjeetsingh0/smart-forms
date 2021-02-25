@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { SmartForm } from 'forms'
-import 'forms/dist/index.css'
 
 const App = () => {
 
@@ -66,7 +65,7 @@ const App = () => {
           name: 'section',
           label: 'section',
           inputType: 'radio',
-          options: [{label: 'first', value: 'first'}, {label: 'secibd', value: 'second'}],
+          options: [{label: 'first', value: 'first'}, {label: 'secibd', value: 'second'}, {label: 'third', value: 'third'}],
           placeholder: 'section',
           value: '',
           className: '',
@@ -84,6 +83,17 @@ const App = () => {
           type: 'text',
           required: true,
           id: 'big-text'
+        },
+        {
+          name: 'date-field',
+          label: 'date-field',
+          inputType: 'date-and-time',
+          placeholder: 'date',
+          value: '',
+          className: '',
+          type: 'text',
+          required: true,
+          id: 'date-field'
         },
 
       ]}

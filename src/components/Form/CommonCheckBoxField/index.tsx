@@ -6,13 +6,19 @@ import {FieldType} from "../interface";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import styles from './style.css';
+import {makeStyles} from '@material-ui/core/styles';
 import {DescriptionText} from "../DescriptionText";
 
 interface CheckBoxTypeProps extends FieldType{
     onChange: (event: ChangeEvent<any>) => void;
     onBlur: (event: ChangeEvent<any>) => void;
 }
+
+const useStyles = makeStyles({
+  formControlCheckBox: {
+  margin: '10px 0'
+}
+})
 
 export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
 
@@ -21,6 +27,8 @@ export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
         onChange, error=false, value='', descriptionText=''
     } = props;
 
+    const classes = useStyles();
+
     function onChangeCheckBox(e: ChangeEvent<any>) {
         e.target.value = e.target.checked;
         onChange(e);
@@ -28,7 +36,7 @@ export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
 
     return (
         <Grid className={`${className}`} id={id ? id : undefined}>
-            <FormControl component="fieldset" disabled={disabled} error={error} className={styles.formControlCheckBox}>
+            <FormControl component="fieldset" disabled={disabled} error={error} className={classes.formControlCheckBox}>
                 <FormLabel component="legend">{label}</FormLabel>
                 <FormGroup onBlur={onBlur}>
                     <FormControlLabel

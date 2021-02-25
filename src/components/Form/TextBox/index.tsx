@@ -2,7 +2,7 @@ import React, {ChangeEvent} from "react";
 import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-import styles from './style.css';
+import {makeStyles} from '@material-ui/core/styles';
 import {FieldType} from "../interface";
 import {DescriptionText} from "../DescriptionText";
 
@@ -12,13 +12,23 @@ interface TextBoxType extends FieldType{
     onChange: (event: ChangeEvent<any>) => void;
     onBlur: (event: ChangeEvent<any>) => void;
 }
+
+const useStyles = makeStyles({
+  textBoxFormControl: {
+    marginBottom: '10px',
+width: '100%'
+}
+})
+
 export const TextBox = (props: TextBoxType) => {
     const {id, className, label, required=false,
         onBlur, helperText, type, disabled=false, descriptionText='',
         onChange, error=false, value='', placeholder='', multiline=false} = props;
+
+    const classes = useStyles();
     return (
         <Grid className={`${className}`}>
-            <FormControl className={styles.textBoxFormControl}>
+            <FormControl className={classes.textBoxFormControl}>
                 <TextField
                     placeholder={placeholder}
                     value={value}

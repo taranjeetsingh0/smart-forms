@@ -13,7 +13,6 @@ import { DateTime } from 'luxon';
 interface DateFieldType extends FieldType{
     onChange: (event: string) => void;
     onBlur: (event: ChangeEvent<any>) => void;
-
 }
 
 export const DateField = (props: DateFieldType) => {
