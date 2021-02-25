@@ -4,7 +4,7 @@
   "description": "Made with create-react-library",
   "author": "Taranjeet Singh",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/taranjeetsingh0/smart-forms.git",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
