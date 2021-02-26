@@ -27,14 +27,15 @@ export interface OptionsType {
 }
 
 export interface FieldType {
-    placeholder: string;
+    placeholder?: string;
     value: string;
     id?: string;
     options?: OptionsType[];
+    // min and max are only for text and number fields
     min?: number;
     max?: number;
-    className: string;
-    required: boolean;
+    className?: string;
+    required?: boolean;
     name: string;
     label: string;
     error?: boolean;
@@ -46,6 +47,6 @@ export interface FieldType {
 }
 
 export interface ConfigField extends FieldType{
-    inputType: 'date' | 'radio' | 'check-box' | 'json' | 'date-and-time' | 'text' | 'bigText' | 'dropdown',
+    inputType: 'date' | 'radio' | 'check-box' | 'json' | 'date-and-time' | 'text' | 'bigText' | 'dropdown' | 'other',
     groupName?: string;
 }
