@@ -42,7 +42,7 @@ export interface FieldType {
     label?: string;
     error?: boolean;
     helperText?: string;
-    type?: 'text' | 'number' | 'password';
+    type?: 'text' | 'number' | 'password' | 'date' | 'checkbox' | 'radio';
     disabled?: boolean;
     descriptionText?: string;
     miscData?: any;

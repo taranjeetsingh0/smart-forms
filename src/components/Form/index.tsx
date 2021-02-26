@@ -72,6 +72,8 @@ export const Form = (props: FormType) => {
         const value = event.target.value;
         let state: FormState[];
 
+        console.log('chenged', value);
+
         function setHelperText(fieldItem: ConfigField, formStateItem: FormState, value: string) {
 
             const {max, inputType, min, required, type} = fieldItem;
@@ -490,6 +492,7 @@ export const Form = (props: FormType) => {
     }
 
     const classes = useStyles();
+    console.log('Form state', formState);
 
     return (
         <Grid className={`${className} ${classes.form}`} container justify={'center'} direction={'column'}>

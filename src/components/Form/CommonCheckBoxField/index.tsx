@@ -29,16 +29,31 @@ export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
     } = props;
 
     const classes = useStyles();
-    console.log('options', options)
 
-    function onChangeCheckBox(e: ChangeEvent<any>) {
-        e.target.value = e.target.checked;
+    function onChangeCheckBox(e: ChangeEvent<any>, checkValue: string) {
+        
+        if(e.target.checked) {
+          e.target.value = value ? `${value},${checkValue}` : `${checkValue}`;
+          console.log('added value', e.target.value);
+        }
+        else {
+          const valueArr = value.split(',').filter((v: string) => v !== checkValue);
+          
+          e.target.value = valueArr.join(',');
+        }
         onChange(e);
     }
 
     function renderCheckBox(option: OptionsType, index: number) {
 
-      const {label, value, disabled} = option;
+      const {label, disabled} = option;
+      const checkBoxValue = option.value;
+
+      function isChecked() {
+        const nv = value.split(',');
+        return nv.includes(checkBoxValue);
+
+      }
 
       return (
         <FormControl
@@ -49,7 +64,9 @@ export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
           <FormLabel component="legend">{label}</FormLabel>
           <FormGroup onBlur={onBlur}>
             <FormControlLabel
-              control={<Checkbox checked={value === 'true'} value={!!value} onChange={onChangeCheckBox} name={label} />}
+              control={<Checkbox checked={isChecked()} value={isChecked()} 
+              onChange={e => onChangeCheckBox(e, checkBoxValue)}
+              name={label} />}
               label={label}
             />
           </FormGroup>
@@ -60,10 +77,12 @@ export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
     return (
         <Grid className={`${className}`} id={id ? id : undefined}>
 
+          <FormLabel component="legend">{label}</FormLabel>
+
           {
             options && options.length
               ? options.map(renderCheckBox)
-              : renderCheckBox({label, value}, 0)
+              : null
 
           }
 
