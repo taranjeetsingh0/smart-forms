@@ -72,8 +72,6 @@ export const Form = (props: FormType) => {
         const value = event.target.value;
         let state: FormState[];
 
-        console.log('chenged', value);
-
         function setHelperText(fieldItem: ConfigField, formStateItem: FormState, value: string) {
 
             const {max, inputType, min, required, type} = fieldItem;
@@ -387,8 +385,11 @@ export const Form = (props: FormType) => {
             );
         }
         if(inputType === 'check-box') {
+          if(!options || !Array.isArray(options)) {
+              throw Error(`Options of inputType ${inputType} should be an array of alteast one object of label and value`)
+          }
           if(options && !checkUniqueOptions(options)) {
-            throw Error(`Options in inputType ${inputType} should have unique values`)
+            throw Error(`Options of inputType ${inputType} should have unique values`);
           }
             return (
                 <CommonCheckBoxField

@@ -44,7 +44,7 @@ const App = () => {
           inputType: 'check-box',
           placeholder: 'gender',
           value: '',
-          options: [{label: 'Male', value: 'male'}, {label: 'Female', value: 'femalew'}, {label: 'Female', value: 'female'}],
+          options: [{label: 'Male', value: 'male'}, {label: 'Female', value: 'female'}],
           className: '',
           type: 'text',
           required: true,

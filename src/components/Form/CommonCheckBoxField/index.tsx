@@ -86,7 +86,7 @@ export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
 
           }
 
-          <FormHelperText>{helperText}</FormHelperText>
+          <FormHelperText error={true}>{helperText}</FormHelperText>
           <DescriptionText description={descriptionText} />
 
         </Grid>
