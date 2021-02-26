@@ -133,4 +133,4 @@ const App = () => {
 
 ## License
 
-MIT © [Taranjeet Singh](https://github.com/Taranjeet Singh)
+MIT © [Taranjeet Singh](https://github.com/taranjeetsingh0)
