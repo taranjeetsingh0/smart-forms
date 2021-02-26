@@ -4,8 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import {TextBox} from "./TextBox";
 import {DropDown} from "./DropDown";
 import {
-    ConfigField,
-    FormType,
+  AlertType,
+  ConfigField, ErrorMessagesType, FIELD,
+  FormType, MESSAGE
 } from "./interface";
 
 import {Alert} from "../Toast";
@@ -24,19 +25,6 @@ interface FormState {
 
 const SET_VALUE_ACTION = 'SET_VALUE_ACTION';
 const SET_IS_TOUCHED_ACTION = 'SET_IS_TOUCHED_ACTION';
-
-export interface AlertType {
-    message: string;
-    severity?: 'success' | 'error' | 'info'
-}
-
-const FIELD = "field";
-const MESSAGE = "message";
-
-interface ErrorMessagesType {
-  [FIELD]?: string;
-  [MESSAGE]: string;
-}
 
 function IsJsonString(str: string) {
   try {

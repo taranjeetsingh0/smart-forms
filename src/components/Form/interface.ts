@@ -1,5 +1,15 @@
-import {ErrorMessagesType} from "@ranjodhbirkaur/constants";
+export interface AlertType {
+  message: string;
+  severity?: 'success' | 'error' | 'info'
+}
 
+export const FIELD = "field";
+export const MESSAGE = "message";
+
+export interface ErrorMessagesType {
+  [FIELD]?: string;
+  [MESSAGE]: string;
+}
 export interface FormType {
     className: string;
     fields: ConfigField[];
