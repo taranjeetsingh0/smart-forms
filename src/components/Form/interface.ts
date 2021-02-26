@@ -49,6 +49,6 @@ export interface FieldType {
 }
 
 export interface ConfigField extends FieldType{
-    inputType: 'date' | 'radio' | 'check-box' | 'json' | 'date-and-time' | 'text' | 'bigText' | 'dropdown' | 'other',
+    inputType: 'date' | 'radio' | 'check-box' | 'json' | 'date-and-time' | 'text' | 'bigText' | 'dropdown' | 'other' | 'slider',
     groupName?: string;
 }

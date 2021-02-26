@@ -16,6 +16,7 @@ import {CommonButton} from "../CommonButton";
 import {DateField} from "./DateField";
 import {VerticalTab, VerticalTabPanel} from "../VerticalTab";
 import { checkUniqueOptions } from "../../utils/tools";
+import { CommonSlider } from "./CommonSlider";
 
 interface FormState {
     label: string;
@@ -408,6 +409,27 @@ export const Form = (props: FormType) => {
                     className={classNames}
                     helperText={helperText}
                 />
+            );
+        }
+
+        if(inputType === 'slider') {
+            return (
+                <CommonSlider
+                    descriptionText={descriptionText}
+                    disabled={disabled}
+                    required={required}
+                    name={name}
+                    key={index}
+                    placeholder={placeholder}
+                    onBlur={onBlur}
+                    onChange={onChange}
+                    value={value}
+                    label={label}
+                    id={id}
+                    options={options}
+                    className={classNames}
+                    helperText={helperText}
+                /> 
             );
         }
         return null;

@@ -75,6 +75,17 @@ const App = () => {
           id: 'section'
         },
         {
+          name: 'section slider',
+          label: 'section-taranjeet',
+          inputType: 'slider',
+          options: [{label: 'first', value: '40'}, {label: 'secibd', value: '50'}, {label: 'third', value: '70'}],
+          placeholder: 'section',
+          value: '',
+          className: '',
+          required: true,
+          id: 'slider-section'
+        },
+        {
           name: 'big-text',
           label: 'big-text',
           inputType: 'bigText',
