@@ -15,6 +15,7 @@ import {CommonCheckBoxField} from "./CommonCheckBoxField";
 import {CommonButton} from "../CommonButton";
 import {DateField} from "./DateField";
 import {VerticalTab, VerticalTabPanel} from "../VerticalTab";
+import { checkUniqueOptions } from "../../utils/tools";
 
 interface FormState {
     label: string;
@@ -67,7 +68,7 @@ export const Form = (props: FormType) => {
         return `${name} is required`;
     }
 
-    function changeValue(event: any, field: string, action: string) {
+    function changeValue(event: any, label: string, action: string) {
         const value = event.target.value;
         let state: FormState[];
 
@@ -111,11 +112,15 @@ export const Form = (props: FormType) => {
             return (!value && fieldItem.required) ? setErrorMessage(formStateItem.label) : ''
         }
 
-        const fieldItem = fields.find(ranjodh => ranjodh.label === field);
+        const fieldItem = fields.find(ranjodh => {
+          if(ranjodh.label === label) return ranjodh;
+          else if(ranjodh.name === label) return ranjodh;
+          return undefined;
+        });
         if(fieldItem) {
             if (action === SET_VALUE_ACTION) {
                 state = formState.map((item) => {
-                    if (item.label === field) {
+                    if (item.label === label) {
                         return {
                             ...item,
                             value,
@@ -128,7 +133,7 @@ export const Form = (props: FormType) => {
             }
             if (action === SET_IS_TOUCHED_ACTION) {
                 state = formState.map((item) => {
-                    if (item.label === field) {
+                    if (item.label === label) {
                         return {
                             ...item,
                             helperText: setHelperText(fieldItem, item, item.value),
@@ -147,7 +152,7 @@ export const Form = (props: FormType) => {
         const state = fields.map(field => {
 
             return {
-                label: field.label,
+                label: field.label || field.name,
                 [`value`]: field.value,
                 [`isTouched`]: !!field.helperText,
                 [`helperText`]: field.helperText || ''
@@ -221,7 +226,16 @@ export const Form = (props: FormType) => {
     }
 
     function renderFields(field: ConfigField, index: number, groupId?: string) {
-        const {inputType, options, groupName='', id, className, name, placeholder, required, type='text', label, disabled=false, descriptionText=''} = field;
+        const {
+          inputType,
+          options,
+          groupName='', id,
+          className, name,
+          placeholder='',
+          required, type='text', disabled=false, descriptionText=''
+        } = field;
+
+        const label = field.label || name;
 
         /*If group Id: Field is not grouped*/
         if(groupId && groupName !== groupId) {
@@ -249,7 +263,6 @@ export const Form = (props: FormType) => {
             return (
                 <DateField
                     descriptionText={descriptionText}
-                    type={inputType}
                     key={index}
                     name={name}
                     disabled={disabled}
@@ -271,7 +284,6 @@ export const Form = (props: FormType) => {
             return (
                 <DateField
                     descriptionText={descriptionText}
-                    type={inputType}
                     key={index}
                     name={name}
                     disabled={disabled}
@@ -359,7 +371,8 @@ export const Form = (props: FormType) => {
                     disabled={disabled}
                     required={required}
                     name={name}
-                    placeholder={''}
+                    key={index}
+                    placeholder={placeholder}
                     onChange={onChange}
                     onBlur={onBlur}
                     value={value}
@@ -372,18 +385,23 @@ export const Form = (props: FormType) => {
             );
         }
         if(inputType === 'check-box') {
+          if(options && !checkUniqueOptions(options)) {
+            throw Error(`Options in inputType ${inputType} should have unique values`)
+          }
             return (
                 <CommonCheckBoxField
                     descriptionText={descriptionText}
                     disabled={disabled}
                     required={required}
                     name={name}
-                    placeholder={''}
+                    key={index}
+                    placeholder={placeholder}
                     onBlur={onBlur}
                     onChange={onChange}
                     value={value}
                     label={label}
                     id={id}
+                    options={options}
                     className={classNames}
                     helperText={helperText}
                 />

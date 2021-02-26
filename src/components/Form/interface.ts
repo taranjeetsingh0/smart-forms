@@ -24,12 +24,14 @@ export interface FormType {
 export interface OptionsType {
     label: string;
     value: string;
+    disabled?: boolean;
 }
 
 export interface FieldType {
     placeholder?: string;
     value: string;
     id?: string;
+    // only if dropdown or radio type
     options?: OptionsType[];
     // min and max are only for text and number fields
     min?: number;
@@ -37,10 +39,10 @@ export interface FieldType {
     className?: string;
     required?: boolean;
     name: string;
-    label: string;
+    label?: string;
     error?: boolean;
     helperText?: string;
-    type?: string;
+    type?: 'text' | 'number' | 'password';
     disabled?: boolean;
     descriptionText?: string;
     miscData?: any;

@@ -8,7 +8,6 @@ import {DescriptionText} from "../DescriptionText";
 
 interface TextBoxType extends FieldType{
     multiline?: boolean;
-    type: string;
     onChange: (event: ChangeEvent<any>) => void;
     onBlur: (event: ChangeEvent<any>) => void;
 }
