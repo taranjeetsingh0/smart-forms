@@ -9,6 +9,7 @@ interface TextBoxType extends FieldType{
     multiline?: boolean;
     onChange: (event: ChangeEvent<any>) => void;
     onBlur: (event: ChangeEvent<any>) => void;
+    variant?: "standard" | "filled" | "outlined" | undefined;
 }
 
 const styles = {
@@ -20,7 +21,7 @@ const styles = {
 
 export const TextBox = (props: TextBoxType) => {
     const {id, className, label, required=false, style,
-        onBlur, helperText, type, disabled=false, descriptionText='',
+        onBlur, helperText, type, disabled=false, descriptionText='', variant,
         onChange, error=false, value='', placeholder='', multiline=false} = props;
 
     
@@ -30,6 +31,7 @@ export const TextBox = (props: TextBoxType) => {
                 <TextField
                     placeholder={placeholder}
                     value={value}
+                    variant={variant}
                     disabled={disabled}
                     error={error}
                     type={type}
