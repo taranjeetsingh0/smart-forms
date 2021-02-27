@@ -1,6 +1,6 @@
 # forms
 
-> Made with create-react-library
+> Create easy forms in react using material-ui
 
 [![NPM](https://img.shields.io/npm/v/forms.svg)](https://www.npmjs.com/package/forms) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
