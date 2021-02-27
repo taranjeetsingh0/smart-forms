@@ -14,11 +14,11 @@ interface CheckBoxTypeProps extends FieldType{
     label: string;
 }
 
-/*const useStyles = makeStyles({
+const styles = {
   formControlCheckBox: {
-  margin: '10px 0'
+    margin: '10px 0'
+  }
 }
-})*/
 
 export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
 
@@ -57,7 +57,7 @@ export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
           key={index}
           component="fieldset"
           disabled={disabled}
-          className={'form-control-checkbox'}>
+          className={`form-control-checkbox ${styles.formControlCheckBox}`}>
           <FormLabel component="legend">{label}</FormLabel>
           <FormGroup onBlur={onBlur}>
             <FormControlLabel

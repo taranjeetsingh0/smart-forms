@@ -8,14 +8,14 @@ import FormControl from '@material-ui/core/FormControl';
 import {FieldType, OptionsType} from "../interface";
 import {DescriptionText} from "../DescriptionText";
 
-// const useStyles = makeStyles({
-//   appDropDown: {
-//     minWidth: '194.4px'
-//   },
-//   appDropDownFormControl: {
-//   width: '100%'
-//   }
-// });
+const styles = {
+    appDropDown: {
+      minWidth: '194.4px'
+    },
+    appDropDownFormControl: {
+    width: '100%'
+    }
+  };
 
 interface DropDownType extends FieldType{
     options: OptionsType[];
@@ -31,8 +31,8 @@ export const DropDown = (props: DropDownType) => {
     const randomId = `${name.split(' ').join('-')}-${index}-drop-down-input-label`;
 
     return (
-        <Grid key={index} className={`${className} appDropDown`} id={id ? id : ''}>
-            <FormControl className={'appDropDownFormControl'} error={error} disabled={disabled}>
+        <Grid key={index} className={`${className} ${styles.appDropDown}`} id={id ? id : ''}>
+            <FormControl className={`${styles.appDropDownFormControl} drop-down-form-container`} error={error} disabled={disabled}>
                 <InputLabel id={randomId}>{label}</InputLabel>
                 <Select
                     className={'app-drop-down-select'}

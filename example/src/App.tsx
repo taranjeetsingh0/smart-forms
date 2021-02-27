@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Form } from 'forms';
-import {Date} from '@taranjeetsingh/date';
+//import {Date} from '@taranjeetsingh/date';
 
 const App = () => {
 
@@ -98,7 +98,7 @@ const App = () => {
         },
         {
           name: 'date-field',
-          Component: Date,
+          //Component: Date,
           label: 'date-field',
           inputType: 'date-and-time',
           placeholder: 'date',

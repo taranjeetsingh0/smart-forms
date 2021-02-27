@@ -2,10 +2,8 @@ import React, {ChangeEvent} from "react";
 import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-
 import {FieldType} from "../interface";
 import {DescriptionText} from "../DescriptionText";
-import {IsJsonString} from "@ranjodhbirkaur/constants";
 
 interface JsonEditorProps extends FieldType{
     onChange: (event: ChangeEvent<any>) => void;
@@ -18,9 +16,6 @@ export const JsonEditor = (props: JsonEditorProps) => {
 
     function onChangeJson(e: any) {
         const value = e.target.value;
-        console.log('i love you ranjodhbir kaur', value);
-
-        console.log('ís valid json', IsJsonString(value));
         onChange(e);
     }
     return (

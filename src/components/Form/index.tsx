@@ -37,24 +37,24 @@ function IsJsonString(str: string) {
   return true;
 }
 
-// const useStyles = makeStyles({
-//   form: {
-//     margin: '20px 0',
-//     paddingBottom: '10px',
-//     borderBottom: '2px dashed #3f51b5'
-//   },
-//   formFieldContainerWrapper: {
-//   borderLeft: '5px solid #3f51b5',
-//   paddingLeft: '10px',
-//   paddingBottom: '10px',
-//   marginBottom: '20px',
-//   borderTopLeftRadius: '5px',
-//   borderBottomLeftRadius: '5px'
-// },
-//   redBorder: {
-//   borderColor: '#f44336 !important'
-// }
-// });
+const styles = {
+    form: {
+      margin: '20px 0',
+      paddingBottom: '10px',
+      borderBottom: '2px dashed #3f51b5'
+    },
+    formFieldContainerWrapper: {
+    borderLeft: '5px solid #3f51b5',
+    paddingLeft: '10px',
+    paddingBottom: '10px',
+    marginBottom: '20px',
+    borderTopLeftRadius: '5px',
+    borderBottomLeftRadius: '5px'
+  },
+    redBorder: {
+    borderColor: '#f44336 !important'
+  }
+  };
 
 export const Form = (props: FormType) => {
 
@@ -259,7 +259,7 @@ export const Form = (props: FormType) => {
         const helperText = getHelperText(label);
         const value = getValue(label);
         const error = hasError(label);
-        const classNames = `${className} form-field-container} ${error ? 'red' : ''}`;
+        const classNames = `${className} ${styles.formFieldContainerWrapper} ${error ? styles.redBorder : ''}`;
 
 
         if(inputType === 'date' && Component && false) {
@@ -523,7 +523,7 @@ export const Form = (props: FormType) => {
     console.log('Form state', formState);
 
     return (
-        <Grid className={`${className} form-container`} container justify={'center'} direction={'column'}>
+        <Grid className={`${className} ${styles.form}`} container justify={'center'} direction={'column'}>
             {fields.map((option: ConfigField, index) => {
                 return renderFields(option, index);
             })}

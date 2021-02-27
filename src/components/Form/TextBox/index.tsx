@@ -11,12 +11,12 @@ interface TextBoxType extends FieldType{
     onBlur: (event: ChangeEvent<any>) => void;
 }
 
-// const useStyles = makeStyles({
-//   textBoxFormControl: {
-//     marginBottom: '10px',
-// width: '100%'
-// }
-// })
+const styles = {
+    textBoxFormControl: {
+      marginBottom: '10px',
+      width: '100%'
+    }
+  }
 
 export const TextBox = (props: TextBoxType) => {
     const {id, className, label, required=false,
@@ -26,7 +26,7 @@ export const TextBox = (props: TextBoxType) => {
     
     return (
         <Grid className={`${className}`}>
-            <FormControl className={'textBoxFormControl'}>
+            <FormControl className={`${styles.textBoxFormControl}`}>
                 <TextField
                     placeholder={placeholder}
                     value={value}

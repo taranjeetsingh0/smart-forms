@@ -4,17 +4,6 @@ import { FormHelperText, FormLabel, Grid } from '@material-ui/core';
 import { FieldType } from '../interface';
 import { DescriptionText } from '../DescriptionText';
 
-// const useStyles = makeStyles((theme: Theme) =>
-//   createStyles({
-//     root: {
-//       width: 300,
-//     },
-//     margin: {
-//       height: theme.spacing(3),
-//     },
-//   }),
-// );
-
 interface CommonSliderType extends FieldType {
     onChange: (e: ChangeEvent<any>) => void;
     onBlur: (event: ChangeEvent<any>) => void;
