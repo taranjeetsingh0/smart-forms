@@ -34,7 +34,7 @@ interface VerticalTabProps {
 //   verticaltabboxcontainer: {
 //     paddingTop: 0
 //   }
-// }));
+// }))
 
 export function VerticalTabPanel(props: VerticalTabPanelProps) {
     const { children, value, index, ...other } = props;
