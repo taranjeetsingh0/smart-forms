@@ -49,8 +49,6 @@ export interface FieldType {
     disabled?: boolean;
     descriptionText?: string;
     miscData?: any;
-    // Render custom Component
-    Component?: any
 }
 
 export interface ConfigField extends FieldType{

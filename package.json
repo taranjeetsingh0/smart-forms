@@ -63,6 +63,8 @@
   ],
   "dependencies": {
     "@material-ui/core": "4.11.3",
-    "@material-ui/lab": "4.0.0-alpha.56"
+    "@material-ui/lab": "4.0.0-alpha.56",
+    "@types/luxon": "^1.26.0",
+    "luxon": "^1.26.0"
   }
 }

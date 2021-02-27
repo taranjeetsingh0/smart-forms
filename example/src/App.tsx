@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { Form } from 'forms';
-//import {Date} from '@taranjeetsingh/date';
 
 const App = () => {
 
@@ -98,13 +97,12 @@ const App = () => {
         },
         {
           name: 'date-field',
-          //Component: Date,
           label: 'date-field',
           inputType: 'date-and-time',
           placeholder: 'date',
           value: '',
           className: '',
-          type: 'text',
+          type: 'date',
           required: true,
           id: 'date-field'
         },

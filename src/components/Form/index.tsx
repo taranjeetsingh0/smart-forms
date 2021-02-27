@@ -1,6 +1,5 @@
 import React, {ChangeEvent, useEffect, useState} from "react";
 import Grid from '@material-ui/core/Grid';
-//import { makeStyles } from '@material-ui/core/styles';
 import {TextBox} from "./TextBox";
 import {DropDown} from "./DropDown";
 import {
@@ -16,6 +15,7 @@ import {CommonButton} from "../CommonButton";
 import {VerticalTab, VerticalTabPanel} from "../VerticalTab";
 import { checkUniqueOptions } from "../../utils/tools";
 import { CommonSlider } from "./CommonSlider";
+import { DateField } from "./CommonDateField";
 
 interface FormState {
     label: string;
@@ -235,7 +235,6 @@ export const Form = (props: FormType) => {
           groupName='', id,
           className, name,
           placeholder='',
-          Component,
           required, type='text', disabled=false, descriptionText=''
         } = field;
 
@@ -267,14 +266,13 @@ export const Form = (props: FormType) => {
         };
         // error color
         if(error) {
-            inlineStyle.borderColor = '#f44336 !important'
+            inlineStyle.borderColor = '#f44336';
         }
 
-        if(inputType === 'date' && Component && false) {
+        if(inputType === 'date') {
             return (
-                <div className={classNames}>
-                    <Component
-                    style={style}
+                <DateField
+                    style={inlineStyle}
                     descriptionText={descriptionText}
                     key={index}
                     name={name}
@@ -288,17 +286,15 @@ export const Form = (props: FormType) => {
                     label={label}
                     id={id}
                     value={value}
-                    className={''}
+                    className={classNames}
                 />
-                </div>
             );
         }
-        if(inputType === 'date-and-time' && Component) {
+        if(inputType === 'date-and-time') {
 
             return (
-                <div className={''}>
-                    <Component
-                    style={style}
+                <DateField
+                    style={inlineStyle}
                     descriptionText={descriptionText}
                     key={index}
                     name={name}
@@ -312,9 +308,8 @@ export const Form = (props: FormType) => {
                     label={label}
                     id={id}
                     value={value}
-                    className={''}
+                    className={classNames}
                 />
-                </div>
             );
         }
         if (inputType === 'text') {
