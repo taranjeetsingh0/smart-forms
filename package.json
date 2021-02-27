@@ -1,7 +1,7 @@
 {
-  "name": "@taranjeetsingh/forms",
+  "name": "@taranjeetsingh/form",
   "version": "1.0.19",
-  "description": "Material Ui forms",
+  "description": "Material Ui form",
   "author": "taranjeetsingh0",
   "license": "MIT",
   "repository": "https://github.com/taranjeetsingh0/smart-forms.git",

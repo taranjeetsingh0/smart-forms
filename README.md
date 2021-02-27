@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save @taranjeetsingh/forms
+npm install --save @taranjeetsingh/form
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install --save @taranjeetsingh/forms
 ```tsx
 import React, { Component } from 'react'
 
-import {SmartForm} from '@taranjeetsingh/forms'
+import {Form} from '@taranjeetsingh/form'
 
 const App = () => {
 
@@ -24,12 +24,11 @@ const App = () => {
 }
 
   return <div style={{padding: '0 20px'}}>
-    <SmartForm
+    <Form
       showClearButton
       fields={[
         {
           name: 'name',
-          //label: 'name taranjeet',
           inputType: 'text',
           placeholder: 'write text here',
           value: '',
@@ -44,11 +43,9 @@ const App = () => {
           name: 'number',
           label: 'number',
           inputType: 'text',
-          //placeholder: 'type number here',
           value: '',
           className: '',
           type: 'number',
-          //required: true,
           id: 'number',
           min: 18,
           max: 90
