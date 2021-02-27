@@ -8,7 +8,7 @@ import {
   FormType, MESSAGE
 } from "./interface";
 
-import {Alert} from "../Toast";
+import {Alert} from "../Alert";
 import {CommonRadioField} from "./CommonRadioField";
 import {CommonCheckBoxField} from "./CommonCheckBoxField";
 import {CommonButton} from "../CommonButton";

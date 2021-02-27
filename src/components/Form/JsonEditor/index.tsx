@@ -15,7 +15,6 @@ export const JsonEditor = (props: JsonEditorProps) => {
         onChange, error=false, value='', placeholder=''} = props;
 
     function onChangeJson(e: any) {
-        const value = e.target.value;
         onChange(e);
     }
     return (
