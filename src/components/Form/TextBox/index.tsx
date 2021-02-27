@@ -19,14 +19,14 @@ const styles = {
   }
 
 export const TextBox = (props: TextBoxType) => {
-    const {id, className, label, required=false,
+    const {id, className, label, required=false, style,
         onBlur, helperText, type, disabled=false, descriptionText='',
         onChange, error=false, value='', placeholder='', multiline=false} = props;
 
     
     return (
-        <Grid className={`${className}`}>
-            <FormControl className={`${styles.textBoxFormControl}`}>
+        <Grid className={`${className} tsf-text-container`} style={style}>
+            <FormControl style={styles.textBoxFormControl}>
                 <TextField
                     placeholder={placeholder}
                     value={value}

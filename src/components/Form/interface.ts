@@ -31,6 +31,7 @@ export interface OptionsType {
 
 export interface FieldType {
     placeholder?: string;
+    style?: object;
     value: string;
     id?: string;
     // only if dropdown or radio type

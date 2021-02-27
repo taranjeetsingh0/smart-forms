@@ -231,6 +231,7 @@ export const Form = (props: FormType) => {
         const {
           inputType,
           options,
+          style,
           groupName='', id,
           className, name,
           placeholder='',
@@ -259,13 +260,21 @@ export const Form = (props: FormType) => {
         const helperText = getHelperText(label);
         const value = getValue(label);
         const error = hasError(label);
-        const classNames = `${className} ${styles.formFieldContainerWrapper} ${error ? styles.redBorder : ''}`;
-
+        const classNames = `${className}`;
+        const inlineStyle: any = {
+            ...style,
+            ...styles.formFieldContainerWrapper
+        };
+        // error color
+        if(error) {
+            inlineStyle.borderColor = '#f44336 !important'
+        }
 
         if(inputType === 'date' && Component && false) {
             return (
                 <div className={classNames}>
                     <Component
+                    style={style}
                     descriptionText={descriptionText}
                     key={index}
                     name={name}
@@ -289,6 +298,7 @@ export const Form = (props: FormType) => {
             return (
                 <div className={''}>
                     <Component
+                    style={style}
                     descriptionText={descriptionText}
                     key={index}
                     name={name}
@@ -310,6 +320,7 @@ export const Form = (props: FormType) => {
         if (inputType === 'text') {
             return (
                 <TextBox
+                    style={inlineStyle}
                     descriptionText={descriptionText}
                     type={type}
                     key={index}
@@ -333,6 +344,7 @@ export const Form = (props: FormType) => {
                 <DropDown
                     descriptionText={descriptionText}
                     disabled={disabled}
+                    style={inlineStyle}
                     onBlur={onBlur}
                     value={value}
                     options={options && options.length ? options : []}
@@ -354,6 +366,7 @@ export const Form = (props: FormType) => {
                 <TextBox
                     descriptionText={descriptionText}
                     disabled={disabled}
+                    style={inlineStyle}
                     type={type}
                     key={index}
                     name={name}
@@ -375,6 +388,7 @@ export const Form = (props: FormType) => {
             return (
                 <CommonRadioField
                     descriptionText={descriptionText}
+                    style={inlineStyle}
                     disabled={disabled}
                     required={required}
                     name={name}
@@ -401,6 +415,7 @@ export const Form = (props: FormType) => {
             return (
                 <CommonCheckBoxField
                     descriptionText={descriptionText}
+                    style={inlineStyle}
                     disabled={disabled}
                     required={required}
                     name={name}
@@ -422,6 +437,7 @@ export const Form = (props: FormType) => {
             return (
                 <CommonSlider
                     descriptionText={descriptionText}
+                    style={inlineStyle}
                     disabled={disabled}
                     required={required}
                     name={name}
@@ -523,7 +539,9 @@ export const Form = (props: FormType) => {
     console.log('Form state', formState);
 
     return (
-        <Grid className={`${className} ${styles.form}`} container justify={'center'} direction={'column'}>
+        <Grid className={`${className} ${styles.form}`} 
+            style={styles.form} 
+            container justify={'center'} direction={'column'}>
             {fields.map((option: ConfigField, index) => {
                 return renderFields(option, index);
             })}

@@ -16,25 +16,24 @@ interface VerticalTabProps {
     setValue: any;
 }
 
-// const useStyles = makeStyles((theme: Theme) => ({
-//   root: {
-//     flexGrow: 1,
-//     backgroundColor: theme.palette.background.paper,
-//     display: 'flex',
-//     height: '400px'
-//   },
-//   tabs: {
-//     borderRight: `1px solid ${theme.palette.divider}`,
-//   },
-//   verticaltabpanel: {
-//     width: '100%',
-//     height: '400px',
-//     overflow: 'auto'
-//   },
-//   verticaltabboxcontainer: {
-//     paddingTop: 0
-//   }
-// }))
+const styles = {
+    root: {
+      flexGrow: 1,
+      display: 'flex',
+      height: '400px'
+    },
+    tabs: {
+      borderRight: `1px solid gray`,
+    },
+    verticaltabpanel: {
+      width: '100%',
+      height: '400px',
+      overflow: 'auto'
+    },
+    verticaltabboxcontainer: {
+      paddingTop: 0
+    }
+  };
 
 export function VerticalTabPanel(props: VerticalTabPanelProps) {
     const { children, value, index, ...other } = props;
@@ -45,13 +44,15 @@ export function VerticalTabPanel(props: VerticalTabPanelProps) {
             hidden={value !== index}
             id={`vertical-tabpanel-${index}`}
             aria-labelledby={`vertical-tab-${index}`}
-            className={'verticaltabpanel'}
+            className={`vertical-tab-panel`}
+            style={styles.verticaltabpanel}
             {...other}
         >
             {value === index
             && (
                 <Box
-                    className={'verticaltabboxcontainer'}
+                    style={styles.verticaltabboxcontainer}
+                    className={'vertical-tab-box-container'}
                     p={3}>
                     {children}
                 </Box>
@@ -77,7 +78,7 @@ export const VerticalTab = (props: VerticalTabProps) => {
     };
 
     return (
-        <div className={`root vertical-tab-container`}>
+        <div className={`vertical-tab-container`} style={styles.root}>
             <Tabs
                 orientation="vertical"
                 variant="scrollable"

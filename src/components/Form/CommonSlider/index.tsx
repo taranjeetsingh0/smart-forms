@@ -11,7 +11,7 @@ interface CommonSliderType extends FieldType {
 
 export const CommonSlider = (props: CommonSliderType) => {
 
-  const {error, miscData, label, value, disabled, name, options=[], onBlur, helperText, descriptionText='', onChange, className} = props;
+  const {error, miscData, label, value, disabled, name, options=[], onBlur, helperText, descriptionText='', onChange, className, style} = props;
   // set default step to 10
   let step = 10;
   if(!(miscData && miscData.step)) step = 10;
@@ -30,7 +30,7 @@ export const CommonSlider = (props: CommonSliderType) => {
   console.log('helper text', helperText);
 
   return (
-    <Grid className={`${className}`} key={id}>
+    <Grid className={`${className} tsf-slider-container`} style={style} key={id}>
       <Grid className={'slider-container'} id={id}>
       <FormLabel component="legend">{label}</FormLabel>
         <Slider

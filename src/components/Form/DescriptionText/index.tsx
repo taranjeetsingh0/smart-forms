@@ -10,7 +10,7 @@ const styles = {
 export const DescriptionText = (props: {description: string}) => {
 
     return (
-        <Grid className={`form-description-text ${styles.form_description_text}`}>
+        <Grid className={`form-description-text`} style={styles.form_description_text}>
             <p>{props.description}</p>
         </Grid>
     );

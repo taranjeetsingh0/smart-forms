@@ -23,7 +23,7 @@ const styles = {
 export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
 
     const {id, className, label,
-        onBlur, helperText, options,
+        onBlur, helperText, options, style,
         onChange, value='', descriptionText=''
     } = props;
 
@@ -57,7 +57,8 @@ export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
           key={index}
           component="fieldset"
           disabled={disabled}
-          className={`form-control-checkbox ${styles.formControlCheckBox}`}>
+          style={styles.formControlCheckBox}
+          className={`form-control-checkbox`}>
           <FormLabel component="legend">{label}</FormLabel>
           <FormGroup onBlur={onBlur}>
             <FormControlLabel
@@ -72,7 +73,7 @@ export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
     }
 
     return (
-        <Grid className={`${className}`} id={id ? id : undefined}>
+        <Grid style={style} className={`${className} tsf-check-box-container`} id={id ? id : undefined}>
 
           <FormLabel component="legend">{label}</FormLabel>
 

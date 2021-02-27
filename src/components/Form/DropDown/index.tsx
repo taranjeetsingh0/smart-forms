@@ -25,14 +25,19 @@ interface DropDownType extends FieldType{
 }
 export const DropDown = (props: DropDownType) => {
 
-    const {options, id, className, name, onChange, onBlur, label,
+    const {options, id, className, name, onChange, onBlur, label, style,
         error=false, helperText, disabled=false, descriptionText = '',
         placeholder='', required=false, value, index} = props;
     const randomId = `${name.split(' ').join('-')}-${index}-drop-down-input-label`;
 
+    const inLineStyle = {
+        ...styles.appDropDown,
+        ...style
+    }
+
     return (
-        <Grid key={index} className={`${className} ${styles.appDropDown}`} id={id ? id : ''}>
-            <FormControl className={`${styles.appDropDownFormControl} drop-down-form-container`} error={error} disabled={disabled}>
+        <Grid key={index} className={`${className} tsf-dropdown-container`} id={id ? id : ''} style={inLineStyle}>
+            <FormControl style={styles.appDropDownFormControl} className={`drop-down-form-container`} error={error} disabled={disabled}>
                 <InputLabel id={randomId}>{label}</InputLabel>
                 <Select
                     className={'app-drop-down-select'}
