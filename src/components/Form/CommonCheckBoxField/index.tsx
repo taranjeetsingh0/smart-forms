@@ -6,7 +6,6 @@ import { FieldType, OptionsType } from "../interface";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import {makeStyles} from '@material-ui/core/styles';
 import {DescriptionText} from "../DescriptionText";
 
 interface CheckBoxTypeProps extends FieldType{
@@ -15,11 +14,11 @@ interface CheckBoxTypeProps extends FieldType{
     label: string;
 }
 
-const useStyles = makeStyles({
+/*const useStyles = makeStyles({
   formControlCheckBox: {
   margin: '10px 0'
 }
-})
+})*/
 
 export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
 
@@ -28,17 +27,15 @@ export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
         onChange, value='', descriptionText=''
     } = props;
 
-    const classes = useStyles();
-
     function onChangeCheckBox(e: ChangeEvent<any>, checkValue: string) {
-        
+
         if(e.target.checked) {
           e.target.value = value ? `${value},${checkValue}` : `${checkValue}`;
           console.log('added value', e.target.value);
         }
         else {
           const valueArr = value.split(',').filter((v: string) => v !== checkValue);
-          
+
           e.target.value = valueArr.join(',');
         }
         onChange(e);
@@ -60,11 +57,11 @@ export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
           key={index}
           component="fieldset"
           disabled={disabled}
-          className={classes.formControlCheckBox}>
+          className={'form-control-checkbox'}>
           <FormLabel component="legend">{label}</FormLabel>
           <FormGroup onBlur={onBlur}>
             <FormControlLabel
-              control={<Checkbox color="primary" checked={isChecked()} value={isChecked()} 
+              control={<Checkbox color="primary" checked={isChecked()} value={isChecked()}
               onChange={e => onChangeCheckBox(e, checkBoxValue)}
               name={label} />}
               label={label}

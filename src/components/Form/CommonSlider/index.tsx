@@ -1,20 +1,19 @@
 import React, { ChangeEvent } from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 import { FormHelperText, FormLabel, Grid } from '@material-ui/core';
 import { FieldType } from '../interface';
 import { DescriptionText } from '../DescriptionText';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: 300,
-    },
-    margin: {
-      height: theme.spacing(3),
-    },
-  }),
-);
+// const useStyles = makeStyles((theme: Theme) =>
+//   createStyles({
+//     root: {
+//       width: 300,
+//     },
+//     margin: {
+//       height: theme.spacing(3),
+//     },
+//   }),
+// );
 
 interface CommonSliderType extends FieldType {
     onChange: (e: ChangeEvent<any>) => void;
@@ -22,7 +21,6 @@ interface CommonSliderType extends FieldType {
 }
 
 export const CommonSlider = (props: CommonSliderType) => {
-  const classes = useStyles();
 
   const {error, miscData, label, value, disabled, name, options=[], onBlur, helperText, descriptionText='', onChange, className} = props;
   // set default step to 10
@@ -44,7 +42,7 @@ export const CommonSlider = (props: CommonSliderType) => {
 
   return (
     <Grid className={`${className}`} key={id}>
-      <Grid className={`${classes.root}`} id={id}>
+      <Grid className={'slider-container'} id={id}>
       <FormLabel component="legend">{label}</FormLabel>
         <Slider
             onChangeCommitted={onSliderChange}
@@ -61,6 +59,6 @@ export const CommonSlider = (props: CommonSliderType) => {
       <DescriptionText description={descriptionText} />
     </Grid>
     </Grid>
-    
+
   );
 }

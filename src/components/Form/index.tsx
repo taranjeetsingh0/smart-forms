@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useEffect, useState} from "react";
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+//import { makeStyles } from '@material-ui/core/styles';
 import {TextBox} from "./TextBox";
 import {DropDown} from "./DropDown";
 import {
@@ -37,24 +37,24 @@ function IsJsonString(str: string) {
   return true;
 }
 
-const useStyles = makeStyles({
-  form: {
-    margin: '20px 0',
-    paddingBottom: '10px',
-    borderBottom: '2px dashed #3f51b5'
-  },
-  formFieldContainerWrapper: {
-  borderLeft: '5px solid #3f51b5',
-  paddingLeft: '10px',
-  paddingBottom: '10px',
-  marginBottom: '20px',
-  borderTopLeftRadius: '5px',
-  borderBottomLeftRadius: '5px'
-},
-  redBorder: {
-  borderColor: '#f44336 !important'
-}
-});
+// const useStyles = makeStyles({
+//   form: {
+//     margin: '20px 0',
+//     paddingBottom: '10px',
+//     borderBottom: '2px dashed #3f51b5'
+//   },
+//   formFieldContainerWrapper: {
+//   borderLeft: '5px solid #3f51b5',
+//   paddingLeft: '10px',
+//   paddingBottom: '10px',
+//   marginBottom: '20px',
+//   borderTopLeftRadius: '5px',
+//   borderBottomLeftRadius: '5px'
+// },
+//   redBorder: {
+//   borderColor: '#f44336 !important'
+// }
+// });
 
 export const Form = (props: FormType) => {
 
@@ -259,12 +259,12 @@ export const Form = (props: FormType) => {
         const helperText = getHelperText(label);
         const value = getValue(label);
         const error = hasError(label);
-        const classNames = `${className} ${classes.formFieldContainerWrapper} ${error ? classes.redBorder : ''}`;
+        const classNames = `${className} form-field-container} ${error ? 'red' : ''}`;
 
 
         if(inputType === 'date' && Component && false) {
             return (
-                <div className={'taranjeet'}>
+                <div className={classNames}>
                     <Component
                     descriptionText={descriptionText}
                     key={index}
@@ -435,7 +435,7 @@ export const Form = (props: FormType) => {
                     options={options}
                     className={classNames}
                     helperText={helperText}
-                /> 
+                />
             );
         }
         return null;
@@ -520,11 +520,10 @@ export const Form = (props: FormType) => {
         setFormState(values);
     }
 
-    const classes = useStyles();
     console.log('Form state', formState);
 
     return (
-        <Grid className={`${className} ${classes.form}`} container justify={'center'} direction={'column'}>
+        <Grid className={`${className} form-container`} container justify={'center'} direction={'column'}>
             {fields.map((option: ConfigField, index) => {
                 return renderFields(option, index);
             })}
