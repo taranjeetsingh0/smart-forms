@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { SmartForm } from 'forms'
+import { Form } from 'forms';
+import {Date} from '@taranjeetsingh/date';
 
 const App = () => {
 
@@ -9,7 +10,7 @@ const App = () => {
 }
 
   return <div style={{padding: '0 20px'}}>
-    <SmartForm
+    <Form
       showClearButton
       fields={[
         {
@@ -97,6 +98,7 @@ const App = () => {
         },
         {
           name: 'date-field',
+          Component: Date,
           label: 'date-field',
           inputType: 'date-and-time',
           placeholder: 'date',

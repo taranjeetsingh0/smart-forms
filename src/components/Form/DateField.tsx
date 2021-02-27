@@ -1,6 +1,6 @@
-import React, {ChangeEvent, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Grid} from "@material-ui/core";
-import {FieldType} from "./interface";
+import {DateFieldType} from "./interface";
 
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -10,10 +10,7 @@ import {
 } from '@material-ui/pickers';
 import { DateTime } from 'luxon';
 
-interface DateFieldType extends FieldType{
-    onChange: (event: string) => void;
-    onBlur: (event: ChangeEvent<any>) => void;
-}
+
 
 export const DateField = (props: DateFieldType) => {
     const {id, className, label, type,

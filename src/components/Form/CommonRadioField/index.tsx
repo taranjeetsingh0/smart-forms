@@ -26,7 +26,7 @@ export const CommonRadioField = (props: RadioTypeProps) => {
                 <RadioGroup aria-label={label} name={name} value={value} onBlur={onBlur} onChange={onChange}>
                     {options && options.map((option, index) => {
                         return (
-                            <FormControlLabel key={`${value}-${index}`} value={option.value} control={<Radio />} label={option.label} />
+                            <FormControlLabel key={`${value}-${index}`} value={option.value} control={<Radio color="primary" />} label={option.label} />
                         );
                     })}
                 </RadioGroup>

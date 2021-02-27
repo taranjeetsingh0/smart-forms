@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 export interface AlertType {
   message: string;
   severity?: 'success' | 'error' | 'info'
@@ -46,9 +48,16 @@ export interface FieldType {
     disabled?: boolean;
     descriptionText?: string;
     miscData?: any;
+    // Render custom Component
+    Component?: any
 }
 
 export interface ConfigField extends FieldType{
     inputType: 'date' | 'radio' | 'check-box' | 'json' | 'date-and-time' | 'text' | 'bigText' | 'dropdown' | 'other' | 'slider',
     groupName?: string;
+}
+
+export interface DateFieldType extends FieldType{
+  onChange: (event: string) => void;
+  onBlur: (event: ChangeEvent<any>) => void;
 }

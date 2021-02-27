@@ -19,14 +19,17 @@ const useStyles = makeStyles((theme: Theme) =>
 interface CommonSliderType extends FieldType {
     onChange: (e: ChangeEvent<any>) => void;
     onBlur: (event: ChangeEvent<any>) => void;
-    key: number;
 }
 
 export const CommonSlider = (props: CommonSliderType) => {
   const classes = useStyles();
 
-  const {error, label, value, name, options=[], onBlur, helperText, descriptionText='', onChange, key} = props;
-  const id = props.id ? props.id : `${name}-${key}`;
+  const {error, miscData, label, value, disabled, name, options=[], onBlur, helperText, descriptionText='', onChange, className} = props;
+  // set default step to 10
+  let step = 10;
+  if(!(miscData && miscData.step)) step = 10;
+
+  const id = props.id ? props.id : `${name}-${descriptionText}`;
 
   const marks = options && options.map(option => {
       return {label: option.label, value: Number(option.value)}
@@ -37,13 +40,18 @@ export const CommonSlider = (props: CommonSliderType) => {
       onChange(e);
   }
 
+  console.log('helper text', helperText);
+
   return (
-    <Grid className={classes.root}>
+    <Grid className={`${className}`} key={id}>
+      <Grid className={`${classes.root}`} id={id}>
       <FormLabel component="legend">{label}</FormLabel>
         <Slider
-            onChange={onSliderChange}
+            onChangeCommitted={onSliderChange}
             onBlur={onBlur}
-            defaultValue={Number(value)}
+            disabled={disabled}
+            value={Number(value)}
+            step={step}
             aria-labelledby={id}
             valueLabelDisplay="auto"
             marks={marks && marks.length ? marks : []}
@@ -52,5 +60,7 @@ export const CommonSlider = (props: CommonSliderType) => {
         <DescriptionText description={descriptionText} />
       <DescriptionText description={descriptionText} />
     </Grid>
+    </Grid>
+    
   );
 }

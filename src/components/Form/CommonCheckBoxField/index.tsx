@@ -64,7 +64,7 @@ export const CommonCheckBoxField = (props: CheckBoxTypeProps) => {
           <FormLabel component="legend">{label}</FormLabel>
           <FormGroup onBlur={onBlur}>
             <FormControlLabel
-              control={<Checkbox checked={isChecked()} value={isChecked()} 
+              control={<Checkbox color="primary" checked={isChecked()} value={isChecked()} 
               onChange={e => onChangeCheckBox(e, checkBoxValue)}
               name={label} />}
               label={label}

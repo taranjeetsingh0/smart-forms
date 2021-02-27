@@ -13,7 +13,6 @@ import {Alert} from "../Toast";
 import {CommonRadioField} from "./CommonRadioField";
 import {CommonCheckBoxField} from "./CommonCheckBoxField";
 import {CommonButton} from "../CommonButton";
-import {DateField} from "./DateField";
 import {VerticalTab, VerticalTabPanel} from "../VerticalTab";
 import { checkUniqueOptions } from "../../utils/tools";
 import { CommonSlider } from "./CommonSlider";
@@ -45,10 +44,12 @@ const useStyles = makeStyles({
     borderBottom: '2px dashed #3f51b5'
   },
   formFieldContainerWrapper: {
-  borderLeft: '2px solid #3f51b5',
+  borderLeft: '5px solid #3f51b5',
   paddingLeft: '10px',
   paddingBottom: '10px',
-  marginBottom: '20px'
+  marginBottom: '20px',
+  borderTopLeftRadius: '5px',
+  borderBottomLeftRadius: '5px'
 },
   redBorder: {
   borderColor: '#f44336 !important'
@@ -233,6 +234,7 @@ export const Form = (props: FormType) => {
           groupName='', id,
           className, name,
           placeholder='',
+          Component,
           required, type='text', disabled=false, descriptionText=''
         } = field;
 
@@ -260,9 +262,10 @@ export const Form = (props: FormType) => {
         const classNames = `${className} ${classes.formFieldContainerWrapper} ${error ? classes.redBorder : ''}`;
 
 
-        if(inputType === 'date') {
+        if(inputType === 'date' && Component && false) {
             return (
-                <DateField
+                <div className={'taranjeet'}>
+                    <Component
                     descriptionText={descriptionText}
                     key={index}
                     name={name}
@@ -276,14 +279,16 @@ export const Form = (props: FormType) => {
                     label={label}
                     id={id}
                     value={value}
-                    className={classNames}
+                    className={''}
                 />
+                </div>
             );
         }
-        if(inputType === 'date-and-time') {
+        if(inputType === 'date-and-time' && Component) {
 
             return (
-                <DateField
+                <div className={''}>
+                    <Component
                     descriptionText={descriptionText}
                     key={index}
                     name={name}
@@ -297,8 +302,9 @@ export const Form = (props: FormType) => {
                     label={label}
                     id={id}
                     value={value}
-                    className={classNames}
+                    className={''}
                 />
+                </div>
             );
         }
         if (inputType === 'text') {
