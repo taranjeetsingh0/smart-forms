@@ -1,6 +1,5 @@
-import React, { ChangeEvent, useState } from 'react';
-import {render, fireEvent} from '@testing-library/react';
-//import {fireEvent} from '@testing-library/user-event';
+import React, { ChangeEvent } from 'react';
+import {render} from '@testing-library/react';
 import {TextBox} from './index';
 
 const setup = () => {
