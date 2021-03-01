@@ -22,11 +22,14 @@ interface DropDownType extends FieldType{
     index: number;
     onChange: (event: ChangeEvent<any>) => void;
     onBlur: (event: ChangeEvent<any>) => void;
+    variant?: "standard" | "filled" | "outlined" | undefined;
+
 }
 export const DropDown = (props: DropDownType) => {
 
     const {options, id, className, name, onChange, onBlur, label, style,
         error=false, helperText, disabled=false, descriptionText = '',
+        variant,
         placeholder='', required=false, value, index} = props;
     const randomId = `${name.split(' ').join('-')}-${index}-drop-down-input-label`;
 
@@ -42,6 +45,7 @@ export const DropDown = (props: DropDownType) => {
                 <Select
                     className={'app-drop-down-select'}
                     name={name}
+                    variant={variant}
                     onBlur={onBlur}
                     placeholder={placeholder}
                     labelId={randomId}
