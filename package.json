@@ -1,6 +1,6 @@
 {
   "name": "@taranjeetsingh/form",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "description": "Material Ui form",
   "author": "taranjeetsingh0",
   "license": "MIT",
@@ -67,7 +67,5 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    
-  }
+  "dependencies": {}
 }
