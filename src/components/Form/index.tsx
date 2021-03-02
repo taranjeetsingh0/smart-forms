@@ -315,6 +315,7 @@ export const Form = (props: FormType) => {
         if (inputType === 'text') {
             return (
                 <TextBox
+                    
                     style={inlineStyle}
                     descriptionText={descriptionText}
                     type={type}
