@@ -49,6 +49,7 @@ export const DropDown = (props: DropDownType) => {
                     placeholder={placeholder}
                     labelId={randomId}
                     value={value}
+                    label={label}
                     required={required}
                     onChange={onChange}
                 >
