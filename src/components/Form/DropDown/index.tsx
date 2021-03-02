@@ -40,12 +40,11 @@ export const DropDown = (props: DropDownType) => {
 
     return (
         <Grid key={index} className={`${className} tsf-dropdown-container`} id={id ? id : ''} style={inLineStyle}>
-            <FormControl style={styles.appDropDownFormControl} className={`drop-down-form-container`} error={error} disabled={disabled}>
+            <FormControl variant={variant} style={styles.appDropDownFormControl} className={`drop-down-form-container`} error={error} disabled={disabled}>
                 <InputLabel id={randomId}>{label}</InputLabel>
                 <Select
                     className={'app-drop-down-select'}
                     name={name}
-                    variant={variant}
                     onBlur={onBlur}
                     placeholder={placeholder}
                     labelId={randomId}
